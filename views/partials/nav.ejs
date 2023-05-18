@@ -1,0 +1,30 @@
+<nav>
+    <div class="container flex flex-ai">
+        <div class="brand-container flex flex-ai">
+            <div class="brand flex flex-ai">
+                <img src="/images/logo.png" alt="" class="brand-logo">
+                <a class="brand-text" href="/events">CU HOST</a>
+            </div>
+            
+            <div class="nav-links flex">
+                <a href="/events" class="nav-link nav-item" data-value="Discover">Discover</a>
+                <a href="/events/new" class="nav-link nav-item" data-value="Host">Host</a>
+                <!-- <a href="/blog" class="nav-link nav-item" data-value="Blog">Blog</a> -->
+            </div>
+        </div>
+        <div class="nav-btn flex flex-ai">
+            <% if(!currentUser) { %>
+            <a class="btn btn-primary nav-item" href="/login">Log In</a>
+            <a class="btn btn-secondary nav-item" href="/register">Sign Up</a>
+            <% } else { %>
+            <div class="logged-cont flex flex-ai">
+                <p><%= currentUser.name %></p>
+            <img src="/images/user.png" alt="" class="user-icon">
+            <a class="btn btn-secondary nav-item" href="/logout">Logout</a>
+            </div>
+            
+            <% } %>
+
+        </div>
+    </div>
+</nav>

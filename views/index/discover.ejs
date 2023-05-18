@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Rosario:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/base.css">
+    <title>Discover</title>
+    <style>
+
+
+        /* ------------------- hero section ---------------------  */
+
+        .hero-contents div {
+            font-size: 1.7rem;
+        }
+
+        .hero-contents button {
+            margin-top: 40px;
+        }
+
+        .hero-text {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 500;
+        }
+
+        .auto-input {
+            color: rgb(98, 255, 0);
+            text-transform: uppercase;
+        }
+
+        .hero-section img {
+            animation: float 6s infinite forwards;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(5px, 0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            50% {
+                transform: translate(-8px, -8px);
+            }
+
+            75% {
+                transform: translate(5px, -5px);
+            }
+
+            100% {
+                transform: translate(5px, 0);
+            }
+
+
+        }
+
+        .hero-section img {
+            width: 65%;
+            object-fit: cover;
+        }
+
+        .hero-section .container {
+            color: white;
+
+            border-radius: 20px;
+
+            box-shadow: 8px 8px 7px #0d0d11,
+                -8px -8px 9px #1c1c24;
+        }
+
+        /* ------------------category section-------------------  */
+
+        .category-section .container {
+            gap: 30px;
+
+            font-size: 1rem;
+            color: white;
+        }
+
+        .category-search {
+            width: 100%;
+
+            gap: 10px;
+
+        }
+
+        .category-search input {
+            width: 75%;
+            outline: none;
+            border: none;
+            background-color: #0d0d11a8;
+            box-shadow: 7px 7px 7px #0d0d11,
+                -8px -8px 9px #1c1c24;
+            color: white;
+
+            font-size: 1.3rem;
+            padding: 0.8em 1.4em;
+            border-radius: 0.15em;
+        }
+
+        .category-search input::placeholder {
+            color: rgb(172, 171, 171);
+            font-weight: 500;
+        }
+
+        .search {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* 
+        .search:hover {
+            background-color: rgb(78, 56, 30);
+        } */
+
+        .category-list {
+            width: 100%;
+            gap: 5%;
+        }
+
+        .event-category {
+            box-shadow: 8px 8px 7px #0d0d11,
+                -8px -8px 9px #1c1c24;
+
+            height: 90px;
+            width: 90px;
+
+            border-radius: 25%;
+            cursor: pointer;
+            transition: 0.15s ease-in-out;
+        }
+
+        .event-category:hover {
+            /* background-color: rgb(106, 86, 30); */
+            /* background-color: rgb(88, 1, 88); */
+            background-color: rgb(88, 78, 18);
+        }
+
+        .event-category img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .event-category.selected {
+            /* background-color: rgb(106, 86, 30); */
+            background-color: rgb(88, 78, 18);
+        }
+
+        /* ------------- event list section ---------------  */
+        .event-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .events-list-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .event-content {
+            gap: 20px;
+        }
+
+        .event-item {
+            font-size: 1rem;
+            box-shadow: 8px 8px 7px #0d0d11,
+                -8px -8px 9px #1c1c24;
+            padding: 15px;
+            gap: 20px;
+
+            border-radius: 20px;
+        }
+
+        .event-item:hover {
+            background-color: rgb(57, 52, 22);
+        }
+
+        .event-banner {
+            display: block;
+            width: 130px;
+            height: 130px;
+
+            border-radius: 10%;
+        }
+
+        .event-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            letter-spacing: 0.015em;
+
+            color: white;
+        }
+
+        .event-tags {
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .event-tag {
+            color: white;
+            background-color: rgb(11, 190, 68);
+
+            padding: 0.25em 0.75em;
+            letter-spacing: 0.02em;
+            border-radius: 10px;
+        }
+
+        .event-date {
+            color: white;
+            font-size: 1.1em;
+            letter-spacing: 0.08em;
+        }
+
+        .alert {
+            width: 30%;
+            margin: 0 auto;
+            margin-top: -30px;
+            margin-bottom: 15px;
+            
+        }
+
+        @media screen and (max-width:820px) {
+            .event-category p {
+                display: none;
+            }
+
+            .event-category {
+                width: 70px;
+                height: 70px;
+            }
+
+            .category-list {
+                justify-content: space-between;
+                gap: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+    <%- include('../partials/flash.ejs') %>
+        <!-- <nav>
+        <div class="container flex flex-ai">
+            <div class="brand-container flex flex-ai">
+                <a class="brand-text" href="/index.html">CU HOST</a>
+                <div class="nav-links flex">
+                    <div class="nav-link selected" data-value="Discover">Discover</div>
+                    <div class="nav-link" data-value="Blog">Blog</div>
+                    <div class="nav-link" data-value="Host">Host</div>
+                </div>
+            </div>
+            <div class="nav-btn flex flex-ai">
+                <a class="btn btn-primary" href="/login.html
+                ">Log In</a>
+                <a class="btn btn-secondary" href="/signup.html">Sign Up</a>
+            </div>
+        </div>
+    </nav> -->
+
+        <section class="hero-section">
+            <div class="container flex flex-ai flex-jc">
+                <div class="hero-contents">
+                    <h1 class="hero-text">Get <span class="auto-input"></span></h1>
+                    <div>by participating in college events.</div>
+                    <button class="btn btn-primary2">Get Started</button>
+                </div>
+                <img src="images/icons/3.png" alt="">
+            </div>
+        </section>
+
+        <section class="category-section">
+            <div class="container flex flex-column flex-jc flex-ai">
+                <div class="category-search flex flex-ai flex-jc">
+                    <input type="text" placeholder="Find a event">
+                    <button class="btn btn-primary2 search">Search</button>
+                </div>
+                <div class="category-list flex flex-ai flex-jc">
+                    <div class="event-category flex flex-column flex-ai flex-jc">
+                        <img src="images/icons/sports.png" alt="">
+                        <p>Sports</p>
+                    </div>
+                    <div class="event-category flex flex-column flex-ai flex-jc">
+                        <img src="images/icons/culture.png" alt="">
+                        <p>Cultural</p>
+                    </div>
+                    <div class="event-category flex flex-column flex-ai flex-jc">
+                        <img src="images/icons/academic.png" alt="">
+                        <p>Academic</p>
+                    </div>
+                    <div class="event-category flex flex-column flex-ai flex-jc selected">
+                        <img src="images/icons/hackathon.png" alt="">
+                        <p>Hackathon</p>
+                    </div>
+                    <div class="event-category flex flex-column flex-ai flex-jc">
+                        <img src="images/icons/project.png" alt="">
+                        <p>Project</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="event-section">
+            <div class="container">
+                <h2>Events going on</h2>
+                <div class="events-list-wrapper">
+                    <% for(let event of events) { %>
+                        <a class="event-item flex" href="/events/<%= event.id %>">
+                            <img src="images/sample events/<%= event.image %>" alt="" class="event-banner">
+                            <div class="event-content flex flex-column">
+                                <div class="event-title">
+                                    <%= event.name %>
+                                </div>
+                                <div class="event-tags flex flex-ai">
+                                    <% for(let tag of event.tags) { %>
+                                        <div class="event-tag">
+                                            <%= tag %>
+                                        </div>
+                                        <% } %>
+                                </div>
+                                <div class="event-date">
+                                    <%= event.date %>
+                                </div>
+                            </div>
+                        </a>
+                        <% } %>
+                </div>
+        </section>
+        <%- include('../partials/footer') %>
+
+            <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+            <script src="/javascripts/animation.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+            <!-- <script>
+        const navlinks = document.querySelectorAll('.nav-link');
+        const letters = 'abcdefghijklmnopqrstuvwxyz';
+
+        let typed = new Typed('.auto-input', {
+            strings: ['creative', 'imaginative', 'innovative'],
+            typeSpeed: 100,
+            backSpeed: 100,
+            loop: true
+        })
+
+        navlinks.forEach(link => {
+            link.addEventListener('mouseover', (event) => {
+                console.log("hello");
+                let count = 0;
+                let interval = setInterval(() => {
+                    link.innerHTML = String(link.innerHTML).split("")
+                        .map((letter, index) => {
+                            if (index < count) {
+                                return String(event.target.dataset.value)[index];
+                            }
+
+                            return letters[Math.floor(Math.random() * 26)]
+                        })
+                        .join("");
+
+                    if (count >= String(event.target.dataset.value).length) {
+                        clearInterval(interval);
+                    }
+                    count += 0.7;
+                }, 30)
+            })
+
+            link.addEventListener('click', (event) => {
+                navlinks.forEach(link => {
+                    if (link.classList.contains('selected') && link.classList.remove('selected'));
+                })
+                event.target.classList.add('selected');
+            })
+        });
+
+    </script> -->
+</body>
+
+</html>

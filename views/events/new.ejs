@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Rosario:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <!-- <link rel="stylesheet" href="/stylesheets/timeline.css"> -->
+    <style>
+        nav {
+            margin-bottom: 0px;
+        }
+
+        h2 {
+            color: rgb(238, 205, 16);
+
+        }
+
+        input,
+        textarea {
+            border: 1px solid rgb(84, 84, 84);
+            outline: none;
+            background-color: var(--background-color);
+
+
+            width: 100%;
+            font-size: 1.2rem;
+            padding: 0.7em 0.75em;
+            border-radius: 0.25em;
+
+            color: white;
+        }
+
+        input:focus-within,
+        textarea:focus-within {
+            border: 2px solid rgb(26, 137, 26);
+
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            font-size: 1.2rem;
+            color: rgb(168, 168, 168);
+        }
+
+        form {
+            margin-top: 15px;
+            gap: 10px;
+        }
+
+        .event-input,
+        .event-venue-club {
+            gap: 10px;
+        }
+
+        .organizer-container {
+            gap:10px;
+        }
+
+        .club-number {
+            gap: 10px;
+        }
+        .social-container {
+            gap: 10px;
+        }
+        .social-link {
+            gap: 15px;
+        }
+        .social-link img{
+            width: 40px;
+            height: 40px;
+        }
+
+        h3.sub-head {
+            margin-top: 15px;
+            color: white;
+        }
+
+   
+
+        form .btn {
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('../partials/nav') %>
+        <section class="form container">
+            <div class="container">
+                <h2>Host an Event</h2>
+                <form action="/events/new" method="post" class="flex flex-column">
+                    <div class="event-input flex flex-column">
+                        <input type="text" placeholder="Event Title" name="name">
+                        <textarea name="description" id="" cols="30" rows="4" placeholder="Describe Event"></textarea>
+                    </div>
+                    <div class="event-venue-club flex">
+                        <input type="text" placeholder="Venue" name="venue">
+                        <input type="date" name="date">
+                    </div>
+                    <input type="text" placeholder="Add Categories (cultural, hackathon...)" name="tags">
+                    <h3 class="sub-head">Organizer Details
+                    </h3>
+                    <div class="organizer-container flex flex-column">
+                        <div class="club-number flex">
+                            <input type="text" placeholder="Club Name" name="club">
+                            <input type="text" name="" id="" placeholder="Contact no." name="number">
+                        </div>
+                        <div class="social-container flex flex-column">
+                            <div class="social-link flex flex-jc flex-ai">
+                                <img src="/images/linkedin.png" alt="">
+                                <input type="text" placeholder="Linkedin" name="contact">
+                            </div>
+                            <div class="social-link flex flex-jc flex-ai">
+                                <img src="/images/gmail.png" alt="">
+                                <input type="text" placeholder="Gmail" name="contact">
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Attach Image" name="image">
+                    </div>
+                    <button class="btn btn-primary2">Host Event</button>
+                </form>
+            </div>
+        </section>
+
+        <%- include('../partials/footer') %>
+
+            <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+            <script src="/javascripts/animation.js"></script>
+
+
+</body>
+
+</html>

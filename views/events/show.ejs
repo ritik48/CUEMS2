@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Rosario:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/timeline.css">
+    <style>
+        nav {
+            margin-bottom: 0px;
+            background-color: var(--background-color);
+        }
+
+        body {
+            background: url(/images/banner1.jpg) rgba(0, 0, 0, 0.725);
+            background-size: 100%;
+            background-blend-mode: multiply;
+
+            background-repeat: repeat-y;
+            /* background-repeat: no-repeat; */
+        }
+        .banner .container {
+            gap: 30px;
+        }
+
+        .banner h2 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 400;
+            /* text-align: right; */
+            color: white;
+
+        }
+
+        section.info {
+            gap: 20px;
+
+        }
+
+        .left-overview {
+            color: white;
+            gap: 80px;
+
+            padding: 20px;
+
+            background: rgba(0, 0, 0, 0.623);
+            box-shadow: 0 0 5px 0 rgba(104, 104, 108, 0.37);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .left-item {
+            position: relative;
+        }
+
+        .left-item:not(:last-child):after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 0.1px;
+
+            bottom: -30px;
+            background-color: rgb(112, 112, 112);
+        }
+
+        .left-item h2 {
+            color: rgb(252, 163, 19);
+
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+
+        .left-overview p {
+            font-size: 1.2em;
+        }
+
+        /* ########## judging criteria ######### */
+        .judging-list-container {
+            font-size: 1rem;
+            gap: 18px;
+        }
+
+        .judging-list-content {
+            color: rgb(117, 118, 117);
+        }
+
+        /* ########### contact ###########*/
+        .organizer-contact-item {
+            gap: 10px;
+        }
+
+        .organizer-contact-item img {
+            width: 40px;
+        }
+
+        /* -------------- container right  --------------------- */
+
+        .container-right {
+            /* border: 1px solid cyan; */
+            flex-grow: 0;
+            flex-shrink: 0;
+            width: 300px;
+
+
+            color: white;
+            border-radius: 10px;
+
+
+
+
+        }
+
+        .container-right a.btn {
+            text-align: center;
+        }
+
+        .right-contents {
+            padding: 20px;
+
+            background: rgba(0, 0, 0, 0.308);
+            box-shadow: 0 0 5px 0 rgba(104, 104, 108, 0.37);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+            gap: 12px;
+        }
+
+        .right-img-content {
+            gap: 10px;
+
+            font-size: 1.2rem;
+        }
+
+        .right-img-content img {
+            width: 120px;
+            height: 120px;
+
+            border-radius: 10px;
+        }
+
+        .deadline-container {
+            gap: 10px;
+        }
+
+        .right-value {
+            color: rgb(252, 163, 19);
+        }
+
+        .event-tags {
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: rgb(176, 51, 13);
+            box-shadow: 0 0 3px 0 rgba(158, 156, 156, 0.747);
+
+            border-radius: 5px;
+            padding: 0.15em 0.5em;
+        }
+        .btn.delete {
+            padding: 0.4em 0.4em;
+            background-color: rgb(129, 24, 24);
+        }
+        @media screen and (max-width: 860px){
+            section.info {
+                flex-direction: column;
+            }
+            .container-right {
+                order: 1;
+            }
+            .container-left {
+                order: 2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+        <!-- <h2 class="event-title">Open Mic Event</h2> -->
+        <section class="banner">
+            <div class="container flex flex-column">
+                <h2 class="organization">Spectrum Debate Club</h2>
+                <section class="info flex">
+                    <div class="container-left">
+                        <div class="left-overview flex flex-column">
+                            <div class="left-item overview">
+                                <h2 class="title">
+                                    <%= event.name %>
+                                </h2>
+                                <p>
+                                    <%= event.description %>"The Impact of Social Media on Society". Students from all
+                                        departments and
+                                        academic
+                                        backgrounds are welcome to participate.
+                                </p>
+                            </div>
+                            <div class="left-item judging">
+                                <h2>Judging Criteria</h2>
+                                <div class="judging-list-container flex flex-column">
+                                    <div class="judging-content">
+                                        <div class="judging-list-head">Quality of the Idea</div>
+                                        <div class="judging-list-content">Includes creativity and originality of the
+                                            idea.
+                                        </div>
+                                    </div>
+                                    <div class="judging-content">
+                                        <div class="judging-list-head">Implementation of the Idea</div>
+                                        <div class="judging-list-content">Includes how well the idea was executed by the
+                                            developer.</div>
+                                    </div>
+                                    <div class="judging-content">
+                                        <div class="judging-list-head">Potential Value to Business</div>
+                                        <div class="judging-list-content">Includes the extent to which the app can help
+                                            businesses grow.</div>
+                                    </div>
+                                    <div class="judging-content">
+                                        <div class="judging-list-head">Integrative experience</div>
+                                        <div class="judging-list-content">Includes how well the app integrates the
+                                            in-person
+                                            and virtual experiences.</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="left-item organizer-contact">
+                            <h2>Organizers contact</h2>
+                            <div class="organizer-contact-item flex flex-ai">
+                                <% for(let organizer of event.contact) { %>
+                                    
+                                    <img src="/images/<%= organizer %>.png" alt="" class="social-icon">
+                                <% } %>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="container-right">
+                        <div class="right-contents flex flex-column">
+                            <div class="right-img-content flex">
+                                <img src="/images/sample events/<%= event.image %>" alt="">
+                                <div class="deadline-container flex flex-column">
+                                    <div>Deadline</div>
+                                    <div class="right-deadline right-value">
+                                        <%= event.date %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="event-tags flex flex-ai">
+                                <% for(let tag of event.tags) { %>
+                                    <div class="tag">
+                                        <%= tag %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div>Club : <span class="right-value">
+                                    <%= event.club %>
+                                </span></div>
+                            <div>Venue : <span class="right-value">
+                                    <%= event.venue %>
+                                </span></div>
+                            <a href="#" class="btn btn-primary2">Apply</a>
+
+                            <form action="/events/<%= event.id %>?_method=DELETE" method="post">
+                                <button class="btn delete">X Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+        </section>
+        <section class="timeline-container">
+            <div class='container left-item'>
+                <h2>Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-row">
+                        <div class="timeline-time">Dec 21</div>
+                        <div class="timeline-content">
+                            <i class="icon-attachment"></i>
+                            <h4>Registration Starts</h4>
+                            <!-- <p>Maxwell Admin Dashboard contains C3 graphs, flot graphs, data tables, calendar, drag
+                                &amp; drop and ion slider.</p>
+                            <div class="thumbs">
+                                <img class="img-fluid rounded"
+                                    src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Maxwell Admin">
+                                <img class="img-fluid rounded"
+                                    src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="Maxwell Admin">
+                                <img class="img-fluid rounded"
+                                    src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Maxwell Admin">
+                            </div> -->
+                            <!-- <div class="">
+                                <span class="badge badge-pill">Sales</span>
+                                <span class="badge badge-pill">Admin</span>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-time">
+                            Dec 18
+                        </div>
+                        <div class="timeline-content">
+                            <i class="icon-code"></i>
+                            <h4>Projects Announced</h4>
+                            <p>
+                                Maxwell Admin Dashboard contains C3 graphs, flot graphs, data tables, calendar.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-time">
+                            Dec 6
+                        </div>
+                        <div class="timeline-content">
+                            <i class="icon-turned_in_not"></i>
+                            <h4>Contribution Starts</h4>
+                            <p>Custom C3 graphs, Custom flot graphs, flot graphs, small graphs, Sass, profile and
+                                timeline.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-row">
+                        <div class="timeline-time">
+                            Dec 6
+                        </div>
+                        <div class="timeline-content">
+                            <i class="icon-turned_in_not"></i>
+                            <h4>Evaluation Starts</h4>
+                            <p>Custom C3 graphs, Custom flot graphs, flot graphs, small graphs, Sass, profile and
+                                timeline.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </section>
+
+
+
+        <%- include('../partials/footer') %>
+
+</body>
+
+</html>

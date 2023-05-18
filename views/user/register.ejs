@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Rosario:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/base.css">
+    <style>
+        .signup-container .container {
+            /* justify-content: space-around; */
+            align-items: self-start;
+            /* border: 1px solid yellow; */
+            /* height: 500px; */
+            gap: 20px;
+            
+        }
+        .signup-right-container {
+            height: 100%;
+            width: 40%;
+            gap: 15px;
+
+                
+            align-items: self-start;
+            /* border: 1px solid red; */
+            /* padding-inline: 40px; */
+        }
+        
+        button {
+            width: 100%;
+        }
+        /* @keyframes scale {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.06);
+            }
+            100% {
+                transform: scale(1);
+            }
+        } */
+        input {
+            border: 1px solid rgb(84, 84, 84);
+            outline: none;
+            background-color: var(--background-color);
+            
+            
+            width: 100%;
+            font-size: 1.2rem;
+            padding: 0.7em 0.75em;
+            border-radius: 0.25em;
+
+            color: white;
+        }
+        .name-input {
+            width: 100%;
+            gap:20px;
+        }
+        
+        button:not(.btn-close){
+            margin-top: 15px;
+        }
+   
+
+        input[type="text"]:focus-within {
+            border: 2px solid rgb(26, 137, 26);
+            
+        }
+        input::placeholder {
+            font-size: 1.2rem;
+            color: rgb(86, 84, 84);
+        }
+
+        /* -------------left container--------------- */
+        .signup-left-container {
+          
+            width: 35%;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            /* border: 1px solid red; */
+            
+        }
+
+        .signup-left-container img {
+            /* width: 100%; */
+            height: 450px;
+            flex-shrink: 0;
+            flex-grow: 0;
+            width: 100%;
+            /* object-fit:cover; */
+
+            animation: move 7s infinite; 
+            animation-delay: 1s;
+            
+        }
+
+        @keyframes move {    
+            33% {
+                transform: translateX(-100%)
+            }
+            66% {
+                transform: translateX(-200%)
+            }
+            100% {
+                transform: translateX(-300%);
+            }
+  
+            
+        }
+
+        .signup-left-container::after {
+            content: '';
+            position: absolute;
+
+            inset: 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.108), rgb(0, 0, 0));
+            
+            border-radius: inherit;
+            
+            
+        }
+
+        .left-content {
+            position: absolute;
+            color: rgb(255, 255, 255);
+            font-size: 1.8rem;
+            font-weight: bold;
+
+            z-index: 2;
+
+            width: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 50px;
+        }
+
+        .alert {
+            width: 30%;
+            margin: 0 auto;
+        }
+
+        @media screen and (max-width:902px) {
+            
+            .nav-link:nth-of-type(3) {
+                display: none;
+            }
+            .signup-container .container {
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+                gap: 40px;
+            }
+            .signup-left-container {
+                /* margin-top: -100px; */
+                
+                width: 100%;
+            }
+            .signup-right-container {
+                width: 100%;
+                height: 100%;
+                gap: 20px
+            }
+    }   
+
+    </style>
+</head>
+<body>
+    <%- include('../partials/nav') %>
+    <%- include('../partials/flash') %>
+    <section class="signup-container">
+     
+        <div class="container flex flex-jc flex-ai">
+            <div class="signup-left-container flex">
+                <!-- <div class="left-img flex"> -->
+                    <img src="images/sample events/7.jpg" alt="">
+                    <img src="images/sample events/1.jpg" alt="">
+                    <img src="images/sample events/2.jpg" alt="">
+                    <img src="images/sample events/5.jpg" alt="">
+                <!-- </div> -->
+                
+                <div class="left-content">The Spectrum Club is proud to present our annual debate event</div>
+            </div>
+            <form action="/register" method="post" class="signup-right-container flex flex-column">
+                <!-- <div class="name-input flex">
+                    <input type="text" placeholder="First name">
+                    <input type="text" placeholder="Last name">
+                </div> -->
+                <input type="text" placeholder="Name" name="name">
+                <input type="text" placeholder="UID" name="username">
+                <input type="text" placeholder="Email" name="email">
+                <input type="text" placeholder="Phone no." name="number">
+                <input type="password" placeholder="Password" name="password">
+                
+                <button class="btn btn-primary2">Create Account</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container flex">
+            <div class="footer-part">
+                <div class="footer brand-text">CU HOST</div>
+            </div>
+
+            <div class="footer-part flex flex-column">
+                <span class="footer-title">Community</span>
+                <span>Organize Event</span>
+                <span>Winners</span>
+                <span>Achievements</span>
+            </div>
+            <div class="footer-part flex flex-column">
+                <span class="footer-title">Support</span>
+                <span>About</span>
+                <span>Help</span>
+                <span>Contact us</span>
+
+            </div>
+        </div>
+    </footer>
+    <!-- <section class="signup-section">
+        <div class="container flex flex-jc">
+            <div class="signup-left-container">
+                <img src="/bg-l3.png" alt="">
+            </div>
+            <div class="signup-right-container">
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="UID">
+                <input type="text" placeholder="Email">
+                <input type="text" placeholder="Phone no.">
+                <input type="text" placeholder="Password">
+            </div>
+        </div>
+    </section> -->
+    
+    <!-- <footer>
+        <div class="container flex">
+            <div class="footer-part">
+                <div class="footer brand-text">CU HOST</div>
+            </div>
+
+            <div class="footer-part flex flex-column">
+                <span class="footer-title">Community</span>
+                <span>Organize Event</span>
+                <span>Winners</span>
+                <span>Achievements</span>
+            </div>
+            <div class="footer-part flex flex-column">
+                <span class="footer-title">Support</span>
+                <span>About</span>
+                <span>Help</span>
+                <span>Contact us</span>
+
+            </div>
+        </div>
+    </footer> -->
+    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+    <script src="/javascripts/animation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
