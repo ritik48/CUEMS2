@@ -16,6 +16,30 @@ router.get('/new', isLoggedIn, (req, res) => {
     res.render('events/new');
 })
 
+router.get('/category/:category', catchAsync(async (req, res) => {
+    const { category } = req.params;
+    let events = "";
+    if (category == "all") {
+        events = await Event.find({});
+    } else {
+        events = await Event.find({ 'category': category });
+    }
+
+    res.json(events);
+}))
+
+router.get('/search/:event_title', catchAsync(async (req, res) => {
+    const { event_title } = req.params
+    let events = "";
+
+    if(event_title=="all") {
+        events = await Event.find({});
+    } else {
+        events = await Event.find({ "name": { "$regex": event_title, "$options": "i" } });
+    }
+    res.json(events);
+}))
+
 router.delete('/:id', isLoggedIn, catchAsync(async (req, res) => {
     const event = await Event.findByIdAndDelete(req.params.id);
     console.log(event)

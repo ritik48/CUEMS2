@@ -4,14 +4,14 @@ const navlinks = document.querySelectorAll('.nav-link');
 const navitems = document.querySelectorAll('.nav-item');
 const letters = 'abcdefghijklmnopqrstuvwxyz';
 
-if(currentPage === '/events') {
-    let typed = new Typed('.auto-input', {
-        strings: ['creative', 'imaginative', 'innovative'],
-        typeSpeed: 100,
-        backSpeed: 100,
-        loop: true
-})
-}
+// if(currentPage === '/events') {
+//     let typed = new Typed('.auto-input', {
+//         strings: ['creative', 'imaginative', 'innovative'],
+//         typeSpeed: 100,
+//         backSpeed: 100,
+//         loop: true
+// })
+// }
 
 navlinks.forEach(link => {
     link.addEventListener('mouseover', (event) => {
