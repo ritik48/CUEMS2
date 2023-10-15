@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Debate</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Rosario:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/stylesheets/base.css" />
+        <link rel="stylesheet" href="/stylesheets/timeline.css" />
+        <style>
+            nav {
+                margin: 10px 0 !important;
+                background-color: var(--background-color);
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Debate</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Rosario:wght@400;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/base.css">
-    <link rel="stylesheet" href="/stylesheets/timeline.css">
-    <style>
-        nav {
-            margin-bottom: 0px;
-            background-color: var(--background-color);
-        }
-
-        body {
-            background: url(/images/banner1.jpg) rgba(0, 0, 0, 0.725);
+            body {
+                /* background: url(/images/banner1.jpg) rgba(0, 0, 0, 0.725);
             background-size: 100%;
             background-blend-mode: multiply;
 
             background-repeat: repeat-y;
-            /* background-repeat: no-repeat; */
-        }
-        .banner .container {
+            background-repeat: no-repeat; */
+            }
+            /* .banner .container {
             gap: 30px;
         }
 
@@ -37,16 +37,16 @@
             font-family: 'IBM Plex Mono', monospace;
             font-weight: 400;
             /* text-align: right; */
-            color: white;
+            /* color: white; */
 
-        }
+            /* } */
 
-        section.info {
+            /* section.info {
             gap: 20px;
 
-        }
+        } */
 
-        .left-overview {
+            /* .left-overview {
             color: white;
             gap: 80px;
 
@@ -56,9 +56,9 @@
             box-shadow: 0 0 5px 0 rgba(104, 104, 108, 0.37);
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.18);
-        }
+        } */
 
-        .left-item {
+            /* .left-item {
             position: relative;
         }
 
@@ -81,32 +81,32 @@
 
         .left-overview p {
             font-size: 1.2em;
-        }
+        } */
 
-        /* ########## judging criteria ######### */
-        .judging-list-container {
+            /* ########## judging criteria ######### */
+            /* .judging-list-container {
             font-size: 1rem;
             gap: 18px;
         }
 
         .judging-list-content {
             color: rgb(117, 118, 117);
-        }
+        } */
 
-        /* ########### contact ###########*/
-        .organizer-contact-item {
+            /* ########### contact ###########*/
+            /* .organizer-contact-item {
             gap: 10px;
         }
 
         .organizer-contact-item img {
             width: 40px;
-        }
+        } */
 
-        /* -------------- container right  --------------------- */
+            /* -------------- container right  --------------------- */
 
-        .container-right {
+            /* .container-right { */
             /* border: 1px solid cyan; */
-            flex-grow: 0;
+            /* flex-grow: 0;
             flex-shrink: 0;
             width: 300px;
 
@@ -114,12 +114,9 @@
             color: white;
             border-radius: 10px;
 
+        } */
 
-
-
-        }
-
-        .container-right a.btn {
+            /* .container-right a.btn {
             text-align: center;
         }
 
@@ -179,16 +176,181 @@
             }
             .container-left {
                 order: 2;
-            }
-        }
-    </style>
-</head>
+            } */
+            /* }  */
 
-<body>
-    <%- include('../partials/nav.ejs') %>
+            main .container {
+                /* border: 1px solid red; */
+
+                display: flex;
+
+                /* gap: 30px; */
+            }
+
+            img {
+                width: 100%;
+                /* width: 600px;
+            height: 600px; */
+                max-width: 500px;
+                max-height: 500px;
+                display: block;
+                object-fit: cover;
+            }
+
+            .left-section {
+                width: 45%;
+                max-width: 500px;
+            }
+
+            .left-section img {
+                border-radius: 20px !important;
+            }
+
+            /* ========= right ========= */
+
+            .right-section {
+                width: 55%;
+                gap: 40px;
+
+                padding: 0 20px 20px 20px;
+            }
+
+            .event-title {
+                color: rgb(234, 233, 233);
+                font-size: 2.8rem;
+            }
+
+            p {
+                color: white;
+            }
+
+            .right-value {
+                color: rgb(252, 163, 19);
+            }
+            .event-club {
+                font-size: 1.2rem;
+            }
+            .event-tags {
+                gap: 10px;
+            }
+
+            .event-info {
+                font-size: 1.4rem;
+                gap: 10px;
+            }
+
+            .event-tag {
+                font-size: 1.2rem;
+                background-color: rgb(194, 164, 44);
+                box-shadow: 0 0 3px 0 rgba(158, 156, 156, 0.747);
+
+                color: white;
+
+                border-radius: 5px;
+                padding: 0.15em 0.5em;
+                cursor: pointer;
+            }
+
+            .event-description {
+                color: white;
+                font-size: 1.3rem;
+            }
+
+            .event-socials {
+                display: flex;
+
+                gap: 20px;
+            }
+
+            .social-icon {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+
+            .event-apply {
+                align-self: flex-start;
+            }
+
+            .left-section::before {
+                content: "";
+                width: 40px;
+                height: 40px;
+
+                /* z-index: -1; */
+
+                background-color: white;
+
+                filter: blur(50px);
+
+                position: absolute;
+            }
+        </style>
+    </head>
+
+    <body>
+        <%- include('../partials/nav.ejs') %>
+
+        <main>
+            <div class="container">
+                <div class="left-section">
+                    <img
+                        src="/images/sample events/<%= event.image %>"
+                        alt=""
+                        class="event-img"
+                    />
+                </div>
+                <div class="right-section flex flex-column">
+                    <div class="right-top">
+                        <h1 class="event-title"><%= event.name %></h1>
+                        <p class="event-club">
+                            Club:
+                            <span class="right-value"><%= event.club %></span>
+                        </p>
+                    </div>
+
+                    <div class="event-info flex flex-column">
+                        <p class="event-date">
+                            Starts on:
+                            <span class="right-value"
+                                ><%= event.getDate() %></span
+                            >
+                        </p>
+                        <p class="event-date">
+                            Venue:
+                            <span class="right-value"><%= event.venue %></span>
+                        </p>
+                        <div class="event-tags flex flex-ai">
+                            <% for(let tag of event.tags) { %>
+                            <div class="event-tag"><%= tag %></div>
+                            <% } %>
+                        </div>
+                    </div>
+
+                    <div class="event-description">
+                        <%= event.description %> The Impact of Social Media on
+                        Society. Students from all departments and academic
+                        backgrounds are welcome to participate.
+                    </div>
+
+                    <div class="event-socials">
+                        <% for(let organizer of event.contact) { %>
+
+                        <img
+                            src="/images/<%= organizer %>.png"
+                            alt=""
+                            class="social-icon"
+                        />
+                        <% } %>
+                    </div>
+
+                    <button class="event-apply btn btn-primary2">Apply</button>
+                </div>
+            </div>
+        </main>
 
         <!-- <h2 class="event-title">Open Mic Event</h2> -->
-        <section class="banner">
+        <!-- <section class="banner">
             <div class="container flex flex-column">
                 <h2 class="organization">Spectrum Debate Club</h2>
                 <section class="info flex">
@@ -276,8 +438,8 @@
                         </div>
                     </div>
                 </section>
-        </section>
-        <section class="timeline-container">
+        </section> -->
+        <!-- <section class="timeline-container">
             <div class='container left-item'>
                 <h2>Timeline</h2>
                 <div class="timeline">
@@ -286,20 +448,7 @@
                         <div class="timeline-content">
                             <i class="icon-attachment"></i>
                             <h4>Registration Starts</h4>
-                            <!-- <p>Maxwell Admin Dashboard contains C3 graphs, flot graphs, data tables, calendar, drag
-                                &amp; drop and ion slider.</p>
-                            <div class="thumbs">
-                                <img class="img-fluid rounded"
-                                    src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Maxwell Admin">
-                                <img class="img-fluid rounded"
-                                    src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="Maxwell Admin">
-                                <img class="img-fluid rounded"
-                                    src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Maxwell Admin">
-                            </div> -->
-                            <!-- <div class="">
-                                <span class="badge badge-pill">Sales</span>
-                                <span class="badge badge-pill">Admin</span>
-                            </div> -->
+    
                         </div>
                     </div>
 
@@ -342,12 +491,8 @@
                 </div>
             </div>
         </div>
-        </section>
-
-
+        </section> -->
 
         <%- include('../partials/footer') %>
-
-</body>
-
+    </body>
 </html>

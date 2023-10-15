@@ -18,7 +18,6 @@
 
         /* ------------------- hero section ---------------------  */
         nav {
-
             margin: 10px 0 !important;
         }
 
@@ -29,11 +28,22 @@
 
         .hero-contents {
             position: absolute;
-            left: 2%;
-            top: 10%;
+            left: 50%;
+            top: 20%;
+            transform: translateX(-50%);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            gap: 60px;
             /* border: 3px solid red; */
             width: 50%;
 
+            /* border: 1px solid red; */
+
+            text-align: center;
+            /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.167), rgba(0, 0, 0, 0.623)); */
             z-index: 1;
         }
 /* 
@@ -60,8 +70,10 @@
         */
 
         .hero-title {
-            font-size: 3.0rem;
+            font-size: 3.2rem;
             z-index: 2;
+
+            text-shadow: 0px 0px 5px #f5c800;
 
             font-weight: bolder;
         }
@@ -126,7 +138,7 @@
         }
 
 
-        .hero-section .container::after {
+        /* .hero-section .container::after {
             content: '';
             position: absolute;
             top: 0;
@@ -140,13 +152,13 @@
 
             border: 0.5px solid rgb(255, 255, 0);
             border-radius: inherit;
-        }
+        } */
 
         .hero-section .container::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.648) 70%, transparent);
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.808) 70%, transparent);
 
             border-radius: inherit;
         }
@@ -176,22 +188,24 @@
         .category-search {
             width: 100%;
 
-            gap: 10px;
-
+            gap: 20px;
         }
 
         .category-search input {
-            width: 75%;
+            width: 65%;
             outline: none;
             border: none;
-            background-color: #0d0d11a8;
-            box-shadow: 7px 7px 7px #0d0d11,
-                -8px -8px 9px #1c1c24;
+            background-color: #2b2b2c95;
+            box-shadow: 0px 0px 7px #1c1c24;
             color: white;
 
             font-size: 1.3rem;
-            padding: 0.8em 1.4em;
+            padding: 0.55em 1.4em;
             border-radius: 0.15em;
+        }
+
+        .event-search:focus-within {
+            box-shadow: 0px 0px 7px #24a3378d;
         }
 
         .category-search input::placeholder {
@@ -202,7 +216,11 @@
         .search {
             color: white;
             font-weight: 600;
+            /* padding-block: 0.6em; */
+            align-self: stretch;
         }
+
+        
 
         /* 
         .search:hover {
@@ -215,8 +233,7 @@
         }
 
         .event-category {
-            box-shadow: 8px 8px 7px #0d0d11,
-                -8px -8px 9px #1c1c24;
+            box-shadow: 0px 0px 8px 3px #1c1c24;
 
             height: 90px;
             width: 90px;
@@ -254,7 +271,7 @@
         .events-list-wrapper {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
+            gap: 50px;
         }
 
         .event-content {
@@ -263,8 +280,7 @@
 
         .event-item {
             font-size: 1rem;
-            box-shadow: 8px 8px 7px #0d0d11,
-                -8px -8px 9px #1c1c24;
+            box-shadow: 0px 0px 8px 3px #1c1c24;
             padding: 15px;
             gap: 20px;
 
@@ -362,6 +378,7 @@
             <div class="container flex flex-ai flex-jc">
                 <div class="hero-contents">
                     <h1 class="hero-title">Discover and Experience the Pulse of College Events!</h1>
+                    <button class="btn btn-primary2" id="event-sec">Get Started</button>
                 </div>
                 
                 <!-- <div class="hero-contents">
@@ -403,7 +420,7 @@
                 </div>
             </div>
         </section>
-        <section class="event-section">
+        <section class="event-section" id="event-sec">
             <div class="container">
                 <h2>Events going on</h2>
                 <div class="events-list-wrapper">
@@ -422,7 +439,7 @@
                                         <% } %>
                                 </div>
                                 <div class="event-date">
-                                    <%= event.date %>
+                                    <%= event.getDate() %>
                                 </div>
                             </div>
                         </a>

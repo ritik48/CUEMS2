@@ -48,7 +48,7 @@ router.delete('/:id', isLoggedIn, catchAsync(async (req, res) => {
 
 }))
 
-router.post('/new', async (req, res) => {
+router.post('/new', catchAsync(async (req, res) => {
     const { tags } = req.body;
     const tag_list = tags.split(',');
     
@@ -58,7 +58,7 @@ router.post('/new', async (req, res) => {
     await event.save();
 
     res.redirect('/events');
-})
+}));
 
 router.get('/:id', catchAsync(async (req, res) => {
     const event = await Event.findById(req.params.id);
