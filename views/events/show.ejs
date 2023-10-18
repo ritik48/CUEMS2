@@ -295,7 +295,7 @@
             <div class="container">
                 <div class="left-section">
                     <img
-                        src="/images/sample events/<%= event.image %>"
+                        src="\uploads\<%= event.image %>"
                         alt=""
                         class="event-img"
                     />
@@ -336,11 +336,13 @@
                     <div class="event-socials">
                         <% for(let organizer of event.contact) { %>
 
-                        <img
-                            src="/images/<%= organizer %>.png"
-                            alt=""
-                            class="social-icon"
-                        />
+                        <a href="<%= organizer.socialLink %>" target="_blank">
+                            <img
+                                src="/images/<%= organizer.socialName %>.png"
+                                alt=""
+                                class="social-icon"
+                            />
+                        </a>
                         <% } %>
                     </div>
 

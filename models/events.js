@@ -8,7 +8,7 @@ const eventSchema = new Schema({
     },
     image: {
         type: String,
-        required: [true, "Even image is required"],
+        required: [true, "Image is required"],
     },
     date: {
         type: String,
@@ -26,7 +26,10 @@ const eventSchema = new Schema({
         type: String,
     },
     contact: {
-        type: [String],
+        type: [{
+            socialName: String,
+            socialLink: String
+        }],
         required: true,
     },
     number: {

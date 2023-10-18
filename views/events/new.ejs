@@ -1,143 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Host</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Rosario:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/stylesheets/base.css" />
+        <!-- <link rel="stylesheet" href="/stylesheets/timeline.css"> -->
+        <style>
+            nav {
+                margin-bottom: 0px;
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Host</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Rosario:wght@400;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/base.css">
-    <!-- <link rel="stylesheet" href="/stylesheets/timeline.css"> -->
-    <style>
-        nav {
-            margin-bottom: 0px;
-        }
+            h2 {
+                color: rgb(238, 205, 16);
+            }
 
-        h2 {
-            color: rgb(238, 205, 16);
+            select,
+            input,
+            textarea {
+                border: 1px solid rgb(84, 84, 84);
+                outline: none;
+                background-color: var(--background-color);
 
-        }
+                width: 100%;
+                font-size: 1.2rem;
+                padding: 0.7em 0.75em;
+                border-radius: 0.25em;
 
-        input,
-        textarea {
-            border: 1px solid rgb(84, 84, 84);
-            outline: none;
-            background-color: var(--background-color);
+                color: white;
+            }
 
+            select {
+                width: max-content;
+            }
 
-            width: 100%;
-            font-size: 1.2rem;
-            padding: 0.7em 0.75em;
-            border-radius: 0.25em;
+            input:focus-within,
+            textarea:focus-within {
+                border: 2px solid rgb(26, 137, 26);
+            }
 
-            color: white;
-        }
+            input::placeholder,
+            textarea::placeholder {
+                font-size: 1.2rem;
+                color: rgb(168, 168, 168);
+            }
 
-        input:focus-within,
-        textarea:focus-within {
-            border: 2px solid rgb(26, 137, 26);
+            form {
+                margin-top: 15px;
+                gap: 10px;
+            }
 
-        }
+            .event-input,
+            .event-venue-club {
+                gap: 10px;
+            }
 
-        input::placeholder,
-        textarea::placeholder {
-            font-size: 1.2rem;
-            color: rgb(168, 168, 168);
-        }
+            .organizer-container {
+                gap: 10px;
+            }
 
-        form {
-            margin-top: 15px;
-            gap: 10px;
-        }
+            .club-number {
+                gap: 10px;
+            }
+            .social-container {
+                gap: 10px;
+            }
+            /* .social-link {
+                gap: 15px;
+            }
+            .social-link img {
+                width: 40px;
+                height: 40px;
+            } */
 
-        .event-input,
-        .event-venue-club {
-            gap: 10px;
-        }
+            h3.sub-head {
+                margin-top: 15px;
+                color: white;
+            }
 
-        .organizer-container {
-            gap:10px;
-        }
+            .social-item {
+                gap: 10px;
+            }
 
-        .club-number {
-            gap: 10px;
-        }
-        .social-container {
-            gap: 10px;
-        }
-        .social-link {
-            gap: 15px;
-        }
-        .social-link img{
-            width: 40px;
-            height: 40px;
-        }
+            .social-input {
+                position: relative;
+                width: 100%;
+            }
 
-        h3.sub-head {
-            margin-top: 15px;
-            color: white;
-        }
+            .social-input input {
+                padding-right: 40px;
+            }
 
-   
+            .remove-social {
+                position: absolute;
 
-        form .btn {
-            padding: 1rem 0;
-        }
-    </style>
-</head>
+                top: 50%;
+                transform: translateY(-50%);
+                right: 0px;
 
-<body>
-    <%- include('../partials/nav') %>
+                font-size: 1.3rem;
+                font-weight: 100;
+
+                width: 40px;
+                height: 40px;
+                color: rgb(255, 86, 86);
+                background-color: transparent;
+                cursor: pointer;
+            }
+            .remove-social:hover {
+                color: red;
+            }
+
+            button.add-link {
+                background-color: rgb(134, 134, 134);
+                font-size: 1.2rem;
+                padding: 0.4em 0.8em;
+                border-radius: 0.25em;
+                border: 1px solid grey;
+                color: white;
+
+                align-self: center;
+                cursor: pointer;
+            }
+
+            button.add-link:hover {
+                opacity: 0.7;
+            }
+
+            form .btn {
+                padding: 1rem 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <%- include('../partials/nav') %>
         <section class="form container">
             <div class="container">
                 <h2>Host an Event</h2>
-                <form action="/events/new" method="post" class="flex flex-column">
+                <form
+                    action="/events/new"
+                    method="post"
+                    class="flex flex-column"
+                    enctype="multipart/form-data"
+                >
                     <div class="event-input flex flex-column">
-                        <input type="text" placeholder="Event Title" name="name">
-                        <textarea name="description" id="" cols="30" rows="4" placeholder="Describe Event"></textarea>
+                        <input
+                            type="text"
+                            placeholder="Event Title"
+                            name="name"
+                        />
+                        <textarea
+                            name="description"
+                            id=""
+                            cols="30"
+                            rows="4"
+                            placeholder="Describe Event"
+                        ></textarea>
                     </div>
                     <div class="event-venue-club flex">
-                        <input type="text" placeholder="Venue" name="venue">
-                        <input type="date" name="date">
+                        <input type="text" placeholder="Venue" name="venue" />
+                        <input type="date" name="date" />
                     </div>
-                    <input type="text" placeholder="Add Categories (cultural, hackathon...)" name="tags">
-                    <h3 class="sub-head">Organizer Details
-                    </h3>
+                    <input
+                        type="text"
+                        placeholder="Add Categories (cultural, hackathon...)"
+                        name="tags"
+                    />
+                    <h3 class="sub-head">Organizer Details</h3>
                     <div class="organizer-container flex flex-column">
                         <div class="club-number flex">
-                            <input type="text" placeholder="Club Name" name="club">
-                            <input type="text" name="" id="" placeholder="Contact no." name="number">
+                            <input
+                                type="text"
+                                placeholder="Club Name"
+                                name="club"
+                            />
+                            <input
+                                type="text"
+                                name=""
+                                id=""
+                                placeholder="Contact no."
+                                name="number"
+                            />
                         </div>
                         <div class="social-container flex flex-column">
-                            <div class="social-link flex flex-jc flex-ai">
-                                <img src="/images/linkedin.png" alt="">
-                                <input type="text" placeholder="Linkedin" name="contact">
-                            </div>
-                            <div class="social-link flex flex-jc flex-ai">
-                                <img src="/images/gmail.png" alt="">
-                                <input type="text" placeholder="Gmail" name="contact">
+                            <div class="social-item flex">
+                                <select name="social[social-name][]" id="cars">
+                                    <option value="gmail">Gmail</option>
+                                    <option value="linkedin">Linkedin</option>
+                                    <option value="outlook">Outlook</option>
+                                </select>
+
+                                <div class="social-input">
+                                    <input
+                                        type="text"
+                                        name="social[social-link][]"
+                                    />
+                                    <button class="remove-social" type="button">
+                                        X
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <input type="text" placeholder="Attach Image" name="image">
+                        <button class="add-link" type="button">+</button>
+                        <div class="image-input">
+                            <input
+                                type="file"
+                                id="image"
+                                name="image"
+                                required
+                            />
+                        </div>
+                        <!-- <input
+                            type="text"
+                            placeholder="Attach Image"
+                            name="image"
+                        /> -->
                     </div>
-                    <button class="btn btn-primary2">Host Event</button>
+                    <button class="btn btn-primary2" type="submit">
+                        Host Event
+                    </button>
                 </form>
             </div>
         </section>
 
         <%- include('../partials/footer') %>
 
-            <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
-            <script src="/javascripts/animation.js"></script>
+        <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+        <script src="/javascripts/animation.js"></script>
 
+        <script>
+            let removeSocial = document.querySelectorAll(".remove-social");
+            let addSocial = document.querySelector(".add-link");
+            let socialContainer = document.querySelector(".social-container");
 
-</body>
+            addSocial.addEventListener("click", () => {
+                // Create the main div element
+                const mainDiv = document.createElement("div");
+                mainDiv.classList.add("social-item", "flex");
 
+                // Create the select element
+                const selectElement = document.createElement("select");
+                selectElement.setAttribute("name", "social[social-name][]");
+                selectElement.setAttribute("id", "cars");
+
+                // Create options for the select element
+                const gmailOption = document.createElement("option");
+                gmailOption.value = "gmail";
+                gmailOption.textContent = "Gmail";
+
+                const linkedinOption = document.createElement("option");
+                linkedinOption.value = "linkedin";
+                linkedinOption.textContent = "Linkedin";
+
+                const outlookOption = document.createElement("option");
+                outlookOption.value = "outlook";
+                outlookOption.textContent = "Outlook";
+
+                // Append options to the select element
+                selectElement.appendChild(gmailOption);
+                selectElement.appendChild(linkedinOption);
+                selectElement.appendChild(outlookOption);
+
+                // Create the social input div
+                const socialInputDiv = document.createElement("div");
+                socialInputDiv.classList.add("social-input");
+
+                // Create the input element
+                const inputElement = document.createElement("input");
+                inputElement.setAttribute("type", "text");
+                inputElement.setAttribute("name", "social[social-link][]");
+
+                // Create the remove button
+                const removeButton = document.createElement("button");
+                removeButton.classList.add("remove-social");
+                removeButton.setAttribute("type", "button");
+                removeButton.textContent = "X";
+
+                // Append input and remove button to the social input div
+                socialInputDiv.appendChild(inputElement);
+                socialInputDiv.appendChild(removeButton);
+
+                // Append select element and social input div to the main div
+                mainDiv.appendChild(selectElement);
+                mainDiv.appendChild(socialInputDiv);
+
+                socialContainer.appendChild(mainDiv);
+                removeSocial = document.querySelectorAll(".remove-social");
+                addRemoveListener();
+            });
+
+            function addRemoveListener() {
+                removeSocial.forEach((btn) => {
+                    btn.addEventListener("click", (e) => {
+                        console.dir(e);
+                        e.target.parentElement.parentElement.remove();
+                    });
+                });
+            }
+            addRemoveListener();
+        </script>
+    </body>
 </html>

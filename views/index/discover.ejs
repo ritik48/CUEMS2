@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="stylesheets/base.css">
     <title>Discover</title>
     <style>
-
-
         /* ------------------- hero section ---------------------  */
         nav {
             margin: 10px 0 !important;
@@ -426,7 +424,7 @@
                 <div class="events-list-wrapper">
                     <% for(let event of events) { %>
                         <a class="event-item flex" href="/events/<%= event.id %>">
-                            <img src="images/sample events/<%= event.image %>" alt="" class="event-banner">
+                            <img src="uploads/<%= event.image %>" alt="" class="event-banner">
                             <div class="event-content flex flex-column">
                                 <div class="event-title">
                                     <%= event.name %>
