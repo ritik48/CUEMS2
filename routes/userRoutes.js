@@ -3,10 +3,13 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 
+
+const Event = require("../models/events");
+
 const catchAsync = require('../utils/catchAsync');
 const passport = require('passport');
 
-const { storeReturnTo } = require('../middleware');
+const { storeReturnTo, isLoggedIn } = require('../middleware');
 
 router.get('/register', (req, res) => {
     res.render('user/register');
@@ -39,6 +42,11 @@ router.post('/login', storeReturnTo, passport.authenticate('local', { failureFla
     const redirectURL = res.locals.returnTo || '/events';
     
     res.redirect(redirectURL);
+})
+
+router.get('/profile', isLoggedIn, async (req, res) => {
+    const events = await Event.find({ "tags": { "$in": ["cultural", "Cultural"] } });
+    res.render('user/about', {events})
 })
 
 
