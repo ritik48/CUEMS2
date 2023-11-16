@@ -1,6 +1,6 @@
 # Ignore node_modules directory (dependencies)
 /node_modules
-/uploads
+/static/uploads
 notes.js
 seed.js
 
